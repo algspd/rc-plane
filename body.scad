@@ -140,5 +140,5 @@ module tail_rod_cover(){
 
   body();
   nose();
-  //cover();
-  //both_wings();
+  cover();
+  both_wings();
