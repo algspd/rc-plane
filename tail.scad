@@ -51,8 +51,7 @@ cylinder(r=2,h=200);
 module tail(){
   translate([400,-64.5,0]) tail_unstranlated();
 }
-// FIXME --------------------------------------------------------------------- FIXME
-// Align tail to the rod
+
 
 tail();
 tail_rod();
