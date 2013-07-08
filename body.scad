@@ -118,11 +118,11 @@ module body(){
   }
 
 module tail_rod_screws(){
-  translate([122, -7, -24]) cylinder(r=2,h=22);
-  mirror([0,1,0])translate([122, -7, -24]) cylinder(r=2,h=22);
+  translate([122, -7, -50]) cylinder(r=2,h=100);
+  mirror([0,1,0])translate([122, -7, -50]) cylinder(r=2,h=100);
 
-  translate([129, -7, -24]) cylinder(r=2,h=22);
-  mirror([0,1,0])translate([129, -7, -24]) cylinder(r=2,h=22);
+  translate([129, -7, -50]) cylinder(r=2,h=100);
+  mirror([0,1,0])translate([129, -7, -50]) cylinder(r=2,h=100);
 }
 
 module tail_rod_support(){
@@ -134,14 +134,13 @@ module tail_rod_cover(){
     translate([135-18, -10, -14+2]) cube([16, 20, 8]);
 }
 
-// FIXME <--------------------------------------------------------- FIXME
-// Faltan las tuercas del tail_rod_cover, tienen que ir empotradas en la parte de abajo
-
 
   body();
   nose();
-  cover();
-  //both_wings();
+  //cover();
+  both_wings();
   tail_rod();
   tail();
   tail_socket();
+  tail_socket_bottom();
+  elevator();
