@@ -1,9 +1,7 @@
 use <tail.scad>;
-scale(0.8)
+rotate([180,0,0]){
+scale(0.8){
 difference(){
-
-
-
   difference(){
      tail_back();
     tail_rod();
@@ -12,3 +10,7 @@ difference(){
 
 }
 
+translate([117,65,30]) cylinder(r=1,h=85);
+
+}
+}
