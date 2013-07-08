@@ -141,6 +141,7 @@ module tail_rod_cover(){
   body();
   nose();
   cover();
-  both_wings();
+  //both_wings();
   tail_rod();
   tail();
+  tail_socket();

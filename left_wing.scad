@@ -13,12 +13,12 @@ translate([0,-52,0]){
 translate([0,50,0])
 rotate([90,0,0])
 translate([12,11,14])
-cylinder(r=8/2,h=540);
+cylinder(r=8/2,h=840);
 
 translate([0,50,0])
 rotate([90,0,0])
 translate([146,5,14])
-cylinder(r=6/2,h=540);
+cylinder(r=6/2,h=840);
 
 }
 }
@@ -32,7 +32,7 @@ translate([0,-52,0]){
 
 // Ribs
 for(i=[0:6])
-translate([0,-i*((550-50)/6),0])vrib();
+translate([0,-i*((850-50)/6),0])vrib();
 }
 
 }

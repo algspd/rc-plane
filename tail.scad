@@ -47,54 +47,89 @@ cylinder(r=2,h=200);
 }
 
 module tail(){
-  translate([400,-65.2,-13]) tail_unstranlated();
+  difference(){
+    scale(0.8) translate([500,-65.2,-13]) tail_unstranlated();
+    tail_rod();
+  }
 }
 
 module tail_socket(){
   difference(){
-    translate([460,0,-11]) cube([90,20,5],center=true);
+    translate([450,0,-10]) cube([70,20,5],center=true);
     union(){
       tail_rod();
-      translate([460,-6,-30]) cylinder(r=2,h=400);
-     translate([500,-6,-30]) cylinder(r=2,h=400);
-     translate([425,-6,-30]) cylinder(r=2,h=400);
-     translate([460,6,-30]) cylinder(r=2,h=400);
-     translate([500,6,-30]) cylinder(r=2,h=400);
-     translate([425,6,-30]) cylinder(r=2,h=400);
+      translate([450,-6,-100]) cylinder(r=2,h=400);
+     translate([475,-6,-100]) cylinder(r=2,h=400);
+     translate([425,-6,-100]) cylinder(r=2,h=400);
+     translate([450,6,-100]) cylinder(r=2,h=400);
+     translate([475,6,-100]) cylinder(r=2,h=400);
+     translate([425,6,-100]) cylinder(r=2,h=400);
     }
   }
 }
 
 module tail_socket_bottom(){
+  back_wheel();
   difference(){
-    translate([460,0,-17]) cube([90,20,5],center=true);
+    translate([450,0,-17]) cube([70,20,5],center=true);
     union(){
       tail_rod();
-      translate([460,-6,-30]) cylinder(r=2,h=400);
-     translate([500,-6,-30]) cylinder(r=2,h=400);
-     translate([425,-6,-30]) cylinder(r=2,h=400);
-     translate([460,6,-30]) cylinder(r=2,h=400);
-     translate([500,6,-30]) cylinder(r=2,h=400);
-     translate([425,6,-30]) cylinder(r=2,h=400);
-
+      translate([450,-6,-100]) cylinder(r=2,h=400);
+     translate([475,-6,-100]) cylinder(r=2,h=400);
+     translate([425,-6,-100]) cylinder(r=2,h=400);
+     translate([450,6,-100]) cylinder(r=2,h=400);
+     translate([475,6,-100]) cylinder(r=2,h=400);
+     translate([425,6,-100]) cylinder(r=2,h=400);
     }
   }
 }
 
 module back_wheel(){
 difference(){
- translate([485,0,-28]) cube([20,6,20],center=true);
- translate([485-10,-6+12,-28-20]) rotate([0,45,0]) cube([40,40,40],center=true);
+ translate([470,0,-28]) cube([20,6,20],center=true);
+ translate([470-10,-6+12,-28-20]) rotate([0,45,0]) cube([40,40,40],center=true);
 }
 }
 
+module elevator_fixed(){
 difference(){
-tail();
+  union(){
+    translate([500*0.8,48/0.7,-66]) rotate([90,0,0])
+    scale([0.48,0.24,0.7]) linear_extrude(file = "tail/front.dxf",height = 200, convexity = 10);
+  }
+  union(){
     tail_rod();
+    translate([450,-6,-100]) cylinder(r=2,h=400);
+    translate([475,-6,-100]) cylinder(r=2,h=400);
+    translate([425,-6,-100]) cylinder(r=2,h=400);
+    translate([450,6,-100]) cylinder(r=2,h=400);
+    translate([475,6,-100]) cylinder(r=2,h=400);
+    translate([425,6,-100]) cylinder(r=2,h=400);
+    translate([150,-200,-17-5/2]) cube([1000,1000,5]);
+    translate([490,-60,-100]) cube([50,117,300]);
+  }
 }
+}
+
+module elevator(){
+  difference(){
+    translate([500*0.8-3+35,48/0.7,-66]) rotate([90,0,0]) scale([0.3,0.24,0.7])
+  linear_extrude(file = "tail/back.dxf",height = 200, convexity = 10);
+  union(){
+    translate([150,-200,-17-5/2]) cube([1000,1000,5]);
+    //translate([490,-60,-100]) cube([50,117,300]);
+    translate([490,-90,-100]) cube([16,31,300]);
+    translate([490,-60+117+1,-100]) cube([16,297,300]);
+  }
+}
+  
+}
+
+tail();
 //tail_rod();
 tail_socket();
-tail_socket_bottom();
+//tail_socket_bottom();
 
-back_wheel();
+elevator_fixed();
+elevator();
 
