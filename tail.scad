@@ -5,11 +5,11 @@ module tail_front(){
 
   union(){
     translate([110,60,-1])
-    cube([36,70,20]);
+    cube([36,70,20+15]);
     translate([110,60,101])
     cube([36,70,20]);
-    translate([110,60,30])
-    cube([16,70,60]);
+    translate([110,60,30+15])
+    cube([16,70,60-15]);
 
   }
 }
@@ -24,10 +24,13 @@ module tail_back(){
   translate([120,0,0])
   linear_extrude(file = "tail/back.dxf",height = 200, convexity = 10);
   union(){
-    translate([110,60,18])
-    cube([22,70,120-36]);
+    translate([110,60,18+15])
+    cube([22,70,120-36-15]);
+    translate([110,0,0]) rotate([0,45+14,0]) cube([100,297,300]);
+    translate([110,0,-1-5+3]) cube([60,297,11]);
   }
-}
+  }
+
 }
 
 module tail_rod(){
@@ -71,7 +74,7 @@ module tail_socket(){
 module tail_socket_bottom(){
   back_wheel();
   difference(){
-    translate([450,0,-17]) cube([70,20,5],center=true);
+    translate([450,0,-19]) cube([70,20,5],center=true);
     union(){
       tail_rod();
       translate([450,-6,-100]) cylinder(r=2,h=400);
@@ -107,29 +110,33 @@ difference(){
     translate([425,6,-100]) cylinder(r=2,h=400);
     translate([150,-200,-17-5/2]) cube([1000,1000,5]);
     translate([490,-60,-100]) cube([50,117,300]);
+    translate([497,200,-12.5]) rotate([90,0,0]) cylinder(r=1,h=400);
   }
 }
 }
 
 module elevator(){
+    elevator_fixed();
   difference(){
-    translate([500*0.8-3+35,48/0.7,-66]) rotate([90,0,0]) scale([0.3,0.24,0.7])
-  linear_extrude(file = "tail/back.dxf",height = 200, convexity = 10);
-  union(){
-    translate([150,-200,-17-5/2]) cube([1000,1000,5]);
-    //translate([490,-60,-100]) cube([50,117,300]);
-    translate([490,-90,-100]) cube([16,31,300]);
-    translate([490,-60+117+1,-100]) cube([16,297,300]);
+    difference(){
+      translate([500*0.8-3+35,48/0.7,-66]) rotate([90,0,0]) scale([0.3,0.24,0.7])
+      linear_extrude(file = "tail/back.dxf",height = 200, convexity = 10);
+      union(){
+        translate([150,-200,-17-5/2]) cube([1000,1000,5]);
+        translate([490,-90,-100]) cube([16,31,300]);
+        translate([490,-60+117+1-2,-100]) cube([16,297,300]);
+      }
   }
-}
+    translate([497,200,-12.5]) rotate([90,0,0]) cylinder(r=1,h=400);
+  }
   
 }
 
 tail();
-//tail_rod();
+tail_rod();
 tail_socket();
-//tail_socket_bottom();
+tail_socket_bottom();
 
-elevator_fixed();
+
 elevator();
 
