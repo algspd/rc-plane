@@ -136,7 +136,5 @@ tail();
 tail_rod();
 tail_socket();
 tail_socket_bottom();
-
-
 elevator();
 
