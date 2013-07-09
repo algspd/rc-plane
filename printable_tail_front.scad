@@ -6,10 +6,10 @@ difference(){
     difference(){
       tail_front();
       union(){
-        translate([120,65,-1]) cylinder(r=2,h=200);
-        translate([100,65,-1]) cylinder(r=2,h=200);
-        translate([72.5,65,-1]) cylinder(r=2,h=200);
-        translate([45,65,-1]) cylinder(r=2,h=200);
+        translate([120,65,-1]) cylinder(r=2.5,h=200);
+        translate([100,65,-1]) cylinder(r=2.5,h=200);
+        translate([72.5,65,-1]) cylinder(r=2.5,h=200);
+        translate([45,65,-1]) cylinder(r=2.5,h=200);
 
       }
     }

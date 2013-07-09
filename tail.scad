@@ -1,15 +1,16 @@
 module tail_front(){
   difference(){
-  scale([0.6,0.3,0.6])
+  translate([0,-22,0])
+  scale([0.6,0.4,0.6])
   linear_extrude(file = "tail/front.dxf",height = 200, convexity = 10);
 
   union(){
-    translate([110,60,-1])
-    cube([36,70,20+15]);
-    translate([110,60,101])
-    cube([36,70,20]);
-    translate([110,60,30+15])
-    cube([16,70,60-15]);
+    translate([110,60-5,-1])
+    cube([36,70+5,20+15]);
+    translate([110,60-5,101])
+    cube([36,70+5,20]);
+    translate([110,60-5,30+15])
+    cube([16,70+5,60-15]);
 
   }
 }
@@ -61,11 +62,11 @@ module tail_socket(){
     translate([450,0,-10]) cube([70,20,5],center=true);
     union(){
       tail_rod();
-      translate([450,-6,-100]) cylinder(r=2,h=400);
-     translate([475,-6,-100]) cylinder(r=2,h=400);
+      translate([450,-7,-100]) cylinder(r=2,h=400);
+     translate([475,-8,-100]) cylinder(r=2,h=400);
      translate([425,-6,-100]) cylinder(r=2,h=400);
-     translate([450,6,-100]) cylinder(r=2,h=400);
-     translate([475,6,-100]) cylinder(r=2,h=400);
+     translate([450,7,-100]) cylinder(r=2,h=400);
+     translate([475,8,-100]) cylinder(r=2,h=400);
      translate([425,6,-100]) cylinder(r=2,h=400);
     }
   }
@@ -77,11 +78,11 @@ module tail_socket_bottom(){
     translate([450,0,-19]) cube([70,20,5],center=true);
     union(){
       tail_rod();
-      translate([450,-6,-100]) cylinder(r=2,h=400);
-     translate([475,-6,-100]) cylinder(r=2,h=400);
+      translate([450,-7,-100]) cylinder(r=2,h=400);
+     translate([475,-8,-100]) cylinder(r=2,h=400);
      translate([425,-6,-100]) cylinder(r=2,h=400);
-     translate([450,6,-100]) cylinder(r=2,h=400);
-     translate([475,6,-100]) cylinder(r=2,h=400);
+     translate([450,7,-100]) cylinder(r=2,h=400);
+     translate([475,8,-100]) cylinder(r=2,h=400);
      translate([425,6,-100]) cylinder(r=2,h=400);
     }
   }
@@ -102,12 +103,12 @@ difference(){
   }
   union(){
     tail_rod();
-    translate([450,-6,-100]) cylinder(r=2,h=400);
-    translate([475,-6,-100]) cylinder(r=2,h=400);
-    translate([425,-6,-100]) cylinder(r=2,h=400);
-    translate([450,6,-100]) cylinder(r=2,h=400);
-    translate([475,6,-100]) cylinder(r=2,h=400);
-    translate([425,6,-100]) cylinder(r=2,h=400);
+      translate([450,-7,-100]) cylinder(r=2,h=400);
+     translate([475,-8,-100]) cylinder(r=2,h=400);
+     translate([425,-6,-100]) cylinder(r=2,h=400);
+     translate([450,7,-100]) cylinder(r=2,h=400);
+     translate([475,8,-100]) cylinder(r=2,h=400);
+     translate([425,6,-100]) cylinder(r=2,h=400);
     translate([150,-200,-17-5/2]) cube([1000,1000,5]);
     translate([490,-60,-100]) cube([50,117,300]);
     translate([497,200,-12.5]) rotate([90,0,0]) cylinder(r=1,h=400);
