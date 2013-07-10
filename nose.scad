@@ -88,5 +88,50 @@ rotate([0,180,0])
     }
   }
 }
+module 
+motor_hole(){
+  translate([-70,15.556/2,15.556/2])
+  rotate([0,90,0])
+  cylinder(r1=2,r2=2,h=100);
+}
+module motor_holes(){
+  mirror([0,0,0])motor_hole();
+  mirror([0,1,0])motor_hole();
+  mirror([0,0,1])motor_hole();
+  mirror([0,1,1])motor_hole();
+
+}
+
+module motor_plate(){
+    difference(){
+
+  translate([0,-35,-30])cube([5,70,70]);
+  union(){
+  difference(){
+    translate([-1,0,0]) rotate([0,90,0]) cylinder(r=100,h=50);
+    translate([0,0,0]) rotate([0,90,0]) cylinder(r=35,h=50);
+  }
+      // Upper plane
+      translate([-1,-25,-35])
+      cube([30,50,10]);
+
+      // Down plane
+      translate([-1,-25,27])
+      cube([30,50,30]);
+
+nose_holes();
+motor_holes();
+
+  }
+
+    }
+
+
+
+}
 
 nose();
+
+motor_plate();
+
+

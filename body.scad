@@ -1,4 +1,4 @@
-$fn=20;
+
 use <wings.scad>
 use <nose.scad>;
 use <cover.scad>;
@@ -139,8 +139,4 @@ module tail_rod_cover(){
   nose();
   //cover();
   both_wings();
-  tail_rod();
-  tail();
-  tail_socket();
-  tail_socket_bottom();
-  elevator();
+  tail_full();

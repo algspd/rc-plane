@@ -1,24 +1,53 @@
-module tail_front(){
-  difference(){
-  translate([0,-22,0])
-  scale([0.6,0.4,0.6])
-  linear_extrude(file = "tail/front.dxf",height = 200, convexity = 10);
-
-  union(){
-    translate([110,60-5,-1])
-    cube([36,70+5,20+15]);
-    translate([110,60-5,101])
-    cube([36,70+5,20]);
-    translate([110,60-5,30+15])
-    cube([16,70+5,60-15]);
-
+module tail_up_front(){
+  translate([0,0,2]){
+    difference(){
+      union(){
+        scale(0.8) translate([500,-65.2,-13]){
+          difference(){
+            translate([0,-22,0]) scale([0.6,0.4,0.6])
+              linear_extrude(file = "tail/front.dxf",height = 200, convexity = 10);
+            union(){
+              translate([110,60-5,-1])
+              cube([36,70+5,20+15]);
+              translate([110,60-5,101])
+              cube([36,70+5,20]);
+              translate([110,60-5,30+15])
+              cube([16,70+5,60-15]);
+            }
+          }
+        }
+      }
+      translate([400,-100,-7.5-300])cube(300);
+    }
+    translate([0,0,3])tail_upper_socket();
   }
+}
+
+module tail_front(){
+difference(){
+  union(){
+    scale(0.8) translate([500,-65.2,-13]){
+      difference(){
+        translate([0,-22,0]) scale([0.6,0.4,0.6])
+          linear_extrude(file = "tail/front.dxf",height = 200, convexity = 10);
+        union(){
+          translate([110,60-5,-1])
+          cube([36,70+5,20+15]);
+          translate([110,60-5,101])
+          cube([36,70+5,20]);
+          translate([110,60-5,30+15])
+          cube([16,70+5,60-15]);
+        }
+      }
+    }
+  }
+  translate([400,-100,-7.501])cube(300);
 }
 
 }
 
 module tail_back(){
-
+  scale(0.8) translate([500,-65.2,-13]) {
   difference(){
   scale([0.6,0.3,0.6])
   scale([0.6,1,1])
@@ -29,6 +58,7 @@ module tail_back(){
     cube([22,70,120-36-15]);
     translate([110,0,0]) rotate([0,45+14,0]) cube([100,297,300]);
     translate([110,0,-1-5+3]) cube([60,297,11]);
+  }
   }
   }
 
@@ -52,7 +82,7 @@ cylinder(r=2,h=200);
 
 module tail(){
   difference(){
-    scale(0.8) translate([500,-65.2,-13]) tail_unstranlated();
+    tail_unstranlated();
     tail_rod();
   }
 }
@@ -62,6 +92,20 @@ module tail_socket(){
     translate([450,0,-10]) cube([70,20,5],center=true);
     union(){
       tail_rod();
+      translate([450,-7,-100]) cylinder(r=2,h=400);
+      translate([475,-8,-100]) cylinder(r=2,h=400);
+      translate([425,-6,-100]) cylinder(r=2,h=400);
+      translate([450,7,-100]) cylinder(r=2,h=400);
+      translate([475,8,-100]) cylinder(r=2,h=400);
+      translate([425,6,-100]) cylinder(r=2,h=400);
+    }
+  }
+}
+
+module tail_upper_socket(){
+  difference(){
+    translate([450,0,-10]) cube([70,20,3],center=true);
+    union(){
       translate([450,-7,-100]) cylinder(r=2,h=400);
      translate([475,-8,-100]) cylinder(r=2,h=400);
      translate([425,-6,-100]) cylinder(r=2,h=400);
@@ -75,7 +119,7 @@ module tail_socket(){
 module tail_socket_bottom(){
   back_wheel();
   difference(){
-    translate([450,0,-19]) cube([70,20,5],center=true);
+    translate([450,0,-19]) cube([70,20,3],center=true);
     union(){
       tail_rod();
       translate([450,-7,-100]) cylinder(r=2,h=400);
@@ -117,7 +161,6 @@ difference(){
 }
 
 module elevator(){
-    elevator_fixed();
   difference(){
     difference(){
       translate([500*0.8-3+35,48/0.7,-66]) rotate([90,0,0]) scale([0.3,0.24,0.7])
@@ -133,9 +176,15 @@ module elevator(){
   
 }
 
-tail();
-tail_rod();
-tail_socket();
-tail_socket_bottom();
-elevator();
+module tail_full(){
+  tail();
+  tail_up_front();
+  tail_rod();
+  tail_socket();
+  tail_socket_bottom();
+  elevator_fixed();
+  elevator();
+}
 
+
+tail_full();
