@@ -9,7 +9,10 @@ module rod_supports(){
   }
   union(){
     rods_both_wings();
-    translate([19.5,-20.5,33]) cube([155-8-30-1,40-1,50]);
+
+    translate([19.5,-5-40,33]) cube([155-8-30-1,40,50]);
+    translate([19.5,5,33]) cube([155-8-30-1,40,50]);
+
     rotate([0,3,0]) translate([19+0.5-18,-24+4+0.5-10,49]) cube([155-8-30-1+36,40-1+20,18]);
   }
   }
