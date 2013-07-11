@@ -11,4 +11,4 @@ Version2: Born from the need to use a lighter and printable fuselage. Also uses 
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License] (http://creativecommons.org/licenses/by-sa/3.0/deed.en).
 
-![alt tag](https://raw.github.com/algspd/rc-plane/master/img/render.png)
+![alt tag](https://raw.github.com/algspd/rc-plane/master/version2/img/render.png)
