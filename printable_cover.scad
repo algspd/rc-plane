@@ -1,2 +1,0 @@
-use <cover.scad>;
-cover();
