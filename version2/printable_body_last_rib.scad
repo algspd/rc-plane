@@ -4,7 +4,7 @@ use <nose.scad>;
 use <tail.scad>;
 use <body_rib.scad>;
 
-
+rotate([0,90,0]){
 difference(){
 union(){
 translate([152,0,0]) body_rib_solid(3);
@@ -19,5 +19,6 @@ union(){
   tail_rod_support();
   bottom_plate();
 
+}
 }
 }
