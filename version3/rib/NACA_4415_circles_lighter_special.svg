@@ -113,7 +113,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -182,13 +182,6 @@
                id="path4717"
                inkscape:connector-curvature="0"
                sodipodi:nodetypes="ccccccccccccccccccccccccccccccccc" />
-            <path
-               transform="matrix(0.35483235,0,0,0.35483235,-12.129866,949.95351)"
-               style="opacity:0.8;fill:#264d99;fill-opacity:1;stroke:none"
-               d="m 547.30064,225.14362 -2.42784,24.08363 -6.96314,22.43157 -11.01792,20.29897 -14.59215,17.68583 c -83.20228,-20.65169 -85.35283,-21.68686 -169,0 l -14.59215,-17.68583 -11.01792,-20.29897 -6.96314,-22.43157 -2.42784,-24.08363 2.42784,-24.08363 6.96314,-22.43157 11.01792,-20.29898 14.59215,-17.68583 17.68583,-14.59214 c 59.02887,23.50273 58.87859,24.96553 133.62834,0 l 17.68583,14.59214 14.59215,17.68583 11.01792,20.29898 6.96314,22.43157 z"
-               id="path4717-5"
-               inkscape:connector-curvature="0"
-               sodipodi:nodetypes="ccccccccccccccccccccc" />
             <path
                transform="matrix(0.32583827,0,0,0.32583827,93.777124,958.78637)"
                style="opacity:0.8;fill:#264d99;fill-opacity:1;stroke:none"

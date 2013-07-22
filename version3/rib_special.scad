@@ -1,5 +1,5 @@
 module solid_rib(){
-linear_extrude(file = "rib/NACA_4415_circles_lighter.dxf",
+linear_extrude(file = "rib/NACA_4415_circles_lighter_special.dxf",
 height = 4, convexity = 10
 );
 }
